@@ -24,7 +24,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -42,14 +41,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! CustomTableViewCell
         
-        cell?.textLabel?.text = restaurantNames[indexPath.row]
-        cell?.imageView?.image = UIImage(named: restaurantNames[indexPath.row])
-        cell?.imageView?.layer.cornerRadius = (cell?.frame.height)!
-        cell?.imageView?.clipsToBounds = true
+        cell.nameLabel.text = restaurantNames[indexPath.row]
+        cell.imageOfPlace.image = UIImage(named: restaurantNames[indexPath.row])
+        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.height / 2
+        cell.imageOfPlace.clipsToBounds = true
         
-        return cell!
+        return cell
     }
     
     //MARK: - Table view delegate
