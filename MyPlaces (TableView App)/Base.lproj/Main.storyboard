@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--My Places-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyPlaces__TableView_App_" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="lXl-Of-EQG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="lXl-Of-EQG">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lXl-Of-EQG" id="b9g-ZG-JOR">
@@ -40,7 +40,7 @@
                             <constraint firstItem="yHY-TJ-WJh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WZz-BT-qN1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Main View Controller" id="j3W-NU-cf2"/>
+                    <navigationItem key="navigationItem" title="My Places" id="j3W-NU-cf2"/>
                     <connections>
                         <outlet property="tableView" destination="yHY-TJ-WJh" id="sUb-7O-nQQ"/>
                     </connections>
@@ -57,6 +57,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hiH-Jf-TQY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
