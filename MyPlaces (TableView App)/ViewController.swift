@@ -22,6 +22,9 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    
+    @IBAction func cancelAction(_ segue: UIStoryboardSegue) { }
 
 
 }
