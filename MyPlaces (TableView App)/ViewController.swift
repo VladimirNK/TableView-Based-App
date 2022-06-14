@@ -11,12 +11,7 @@ class ViewController: UIViewController {
     
     let cellReuseIdentifier = "cell"
     
-    let restaurantNames = [
-        "Burger Heroes", "Kitchen", "Bonsai", "Дастархан",
-        "Индокитай", "X.O", "Балкан Гриль", "Sherlock Holmes",
-        "Speak Easy", "Morris Pub", "Вкусные истории",
-        "Классик", "Love&Life", "Шок", "Бочка"
-    ]
+    let places = Place.getPlaces()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -36,25 +31,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurantNames.count
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! CustomTableViewCell
         
-        cell.nameLabel.text = restaurantNames[indexPath.row]
-        cell.imageOfPlace.image = UIImage(named: restaurantNames[indexPath.row])
+        cell.nameLabel.text = places[indexPath.row].name
+        cell.imageOfPlace.image = UIImage(named: places[indexPath.row].image)
+        cell.locationLabel.text = places[indexPath.row].location
+        cell.typeLabel.text = places[indexPath.row].type
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.height / 2
         cell.imageOfPlace.clipsToBounds = true
         
         return cell
-    }
-    
-    //MARK: - Table view delegate
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 85
     }
     
     
