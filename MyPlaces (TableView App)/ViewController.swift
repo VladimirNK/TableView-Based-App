@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     let cellReuseIdentifier = "cell"
     
-    let places = Place.getPlaces()
+    var places = Place.getPlaces()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,7 +24,12 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func cancelAction(_ segue: UIStoryboardSegue) { }
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
+        guard let newPlaceVC = segue.source as? NewPlaceViewController else { return }
+        newPlaceVC.saveNewPlace()
+        places.append(newPlaceVC.newPlace!)
+        tableView.reloadData()
+    }
 
 
 }
@@ -41,10 +46,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! CustomTableViewCell
         
-        cell.nameLabel.text = places[indexPath.row].name
-        cell.imageOfPlace.image = UIImage(named: places[indexPath.row].image)
-        cell.locationLabel.text = places[indexPath.row].location
-        cell.typeLabel.text = places[indexPath.row].type
+        let place = places[indexPath.row]
+        
+        cell.nameLabel.text = place.name
+        cell.locationLabel.text = place.location
+        cell.typeLabel.text = place.type
+        
+        if place.image == nil {
+            cell.imageOfPlace.image = UIImage(named: place.restaurantImage!)
+        } else {
+            cell.imageOfPlace.image = place.image
+        }
+        
+        
+        
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.height / 2
         cell.imageOfPlace.clipsToBounds = true
         
