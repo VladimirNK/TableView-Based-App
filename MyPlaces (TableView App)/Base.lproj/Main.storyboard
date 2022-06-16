@@ -16,8 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7Fe-2E-XI7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="32"/>
+                                <segments>
+                                    <segment title="Date"/>
+                                    <segment title="Name"/>
+                                </segments>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yHY-TJ-WJh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="742"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="lXl-Of-EQG" customClass="CustomTableViewCell" customModule="MyPlaces__TableView_App_" customModuleProvider="target">
@@ -82,12 +89,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="yHY-TJ-WJh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3rh-rV-ANn"/>
-                            <constraint firstItem="yHY-TJ-WJh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HpO-FC-0lb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Fe-2E-XI7" secondAttribute="trailing" id="IEK-P0-ctL"/>
                             <constraint firstItem="yHY-TJ-WJh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NYE-jP-EQL"/>
+                            <constraint firstItem="yHY-TJ-WJh" firstAttribute="top" secondItem="7Fe-2E-XI7" secondAttribute="bottom" constant="1" id="RMN-hO-E5J"/>
+                            <constraint firstItem="7Fe-2E-XI7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TFE-dy-qKl"/>
                             <constraint firstItem="yHY-TJ-WJh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WZz-BT-qN1"/>
+                            <constraint firstItem="7Fe-2E-XI7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="npQ-UV-DFB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="j3W-NU-cf2">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="Fdv-Ll-xac"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Nlc-Hg-ini">
                             <connections>
                                 <segue destination="UJg-48-a0p" kind="presentation" modalTransitionStyle="crossDissolve" id="iyy-Ag-fAB"/>
@@ -313,9 +324,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Z1M-UU-app"/>
+        <segue reference="49B-Hm-97i"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
